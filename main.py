@@ -1,6 +1,15 @@
-# This is a sample Python script.
+'''
+ colorSpaceConversionPyScript
+ Author: @madrali
+ Description: In this script, we read an image and create different variations of it
+ by applying various color space conversions using Python and the OpenCV library.
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+ Date: June 2, 2023 Signature: You, the person downloading this script and running it,
+ should know what it does. You are responsible for what you do with this script and the
+ results it produces. Don't blame me if something goes wrong.
+ License: MIT License
+'''
+
 import cv2
 import os
 from itertools import permutations
