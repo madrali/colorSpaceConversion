@@ -1,18 +1,11 @@
-'''
- colorSpaceConversionPyScript
- Author: @madrali
- Description: In this script, we read an image and create different variations of it
- by applying various color space conversions using Python and the OpenCV library.
-
- Date: June 2, 2023 Signature: You, the person downloading this script and running it,
- should know what it does. You are responsible for what you do with this script and the
- results it produces. Don't blame me if something goes wrong.
- License: MIT License
-'''
-
 import cv2
 import os
+import logging
 from itertools import permutations
+
+# Create a logger
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger()
 
 image_path = 'C:\\Users\\yigit\\Desktop\\111.jpg'
 save_path = os.path.join(os.path.dirname(image_path), 'converted_images\\')
@@ -48,6 +41,9 @@ def apply_filters(image_path):
     # apply max 4 filters
 
     for i in range(1,5):
+        # Create a new directory for each combination
+        combo_save_path = os.path.join(save_path, f'{i}_combinations\\')
+        os.makedirs(combo_save_path, exist_ok=True)
 
         for sequence in permutations(conversions.keys(), i):
             temp_img = img.copy()
@@ -61,8 +57,9 @@ def apply_filters(image_path):
                         break
                     temp_img = cv2.cvtColor(temp_img, conversions[conversion])
                     file_name += conversion + "_"
-                cv2.imwrite(save_path + file_name + '.jpg', temp_img)
+                cv2.imwrite(combo_save_path + file_name + '.jpg', temp_img)
             except cv2.error as e:
                 print(f"Skipping {file_name} due to error: {e}")
+                logger.error(f"Skipping {file_name} due to error: {e}")
 
 apply_filters(image_path)
