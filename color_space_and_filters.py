@@ -13,7 +13,7 @@ coloredlogs.install(level='DEBUG', logger=logger)
 image_path = 'C:\\Users\\yigit\\Desktop\\111.jpg'
 save_path = os.path.join(os.path.dirname(image_path), 'converted_images\\')
 
-# Function dictionary
+# function dictionary
 conversions = {
     'BGR2RGB': cv2.COLOR_BGR2RGB,
     'RGB2BGR': cv2.COLOR_RGB2BGR,
@@ -85,6 +85,5 @@ def apply_filters(image_path):
             except cv2.error as e:
                 print(f"Skipping {file_name} due to error: {e}")
                 logger.error(f"Skipping {file_name} due to error: {e}")
-
 
 apply_filters(image_path)
