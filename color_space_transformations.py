@@ -18,6 +18,11 @@ gray_conversions = {
 # Ensure that the directory exists
 os.makedirs(save_path, exist_ok=True)
 
+
+# i write these same functions over and over again bcs i wanted faster results
+# i could have used a dictionary but i didnt want
+# does it Really matter? idk i ll check later
+
 def ownConv(image):
     red_channel =image[:, :, 0]
     green_channel = image[:, :, 1]
@@ -118,7 +123,7 @@ def is_green_dominant(image):
         avg_b, avg_g, avg_r = b.mean(), g.mean(), r.mean()
 
         # Set the threshold as you need
-        threshold = 2
+        threshold = 15
         return avg_g - max(avg_b, avg_r) > threshold
     else:
         # If the image is grayscale, it's not green-dominant
@@ -129,6 +134,7 @@ def apply_filters(image_path):
 
     for i in range(1,6):  # I've changed this from 5 to 6 to include ownConv5
         combo_save_path = os.path.join(save_path, f'{i}_combinations\\')
+        print(combo_save_path)
         os.makedirs(combo_save_path, exist_ok=True)
 
         for sequence in product(conversions.keys(), repeat=i):
