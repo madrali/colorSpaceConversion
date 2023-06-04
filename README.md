@@ -1,7 +1,7 @@
-# Color Space Conversion Effects on Image Reading Libraries
+# Color Space Conversion Effects on Ai Traning
 
 ## Description
-This repository contains Python scripts that apply various color space conversions to images using different image reading libraries. The purpose of these scripts is to investigate the effects of different image reading libraries and commonly used color space conversions on output images. The results can be used to understand how these variations might influence the training of various AI models.
+This repository contains Python scripts that apply various color space conversions to images using different image reading libraries. The purpose of these scripts is to investigate the effects of different image reading libraries and commonly used color space conversions on output images. The results can be used to understand how these variations might influence the training of various AI models. 
 
 ## Features
 - Reads images using four different libraries: OpenCV, Pillow, imageio, and scikit-image.
