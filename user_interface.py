@@ -12,7 +12,6 @@ class UserInterface:
         self.panelB = None
 
 
-    # burada ImageCapture'dan aldığınız `update_panel` kodunu yerleştirin
 
     def update_panel(self, original_image, filtered_image):
         """
@@ -92,6 +91,5 @@ class UserInterface:
             self.canvas.grid(row=0, column=0, rowspan=10, columnspan=5)
 
             # self.window.tk.call('wm', 'iconphoto', self.window._w, tkinter.PhotoImage(file='test-images/icon.png'))
-        # However, you'll need to replace all instances of `self.img_cap` with `self.image_capture`,
-        # and `self.window` will already be defined.
+  
         pass
